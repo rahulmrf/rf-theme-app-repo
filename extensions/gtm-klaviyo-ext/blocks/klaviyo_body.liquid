@@ -1,0 +1,16 @@
+{%- if block.settings.klaviyo_public_api_key -%}
+    <script type="text/javascript" src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id={{block.settings.klaviyo_public_api_key}}" defer="defer"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "RF - Klaviyo integration",
+  "target": "body",
+  "javascript": "klaviyo_tracking.js",
+  "settings": [
+    { "type": "text", "id": "klaviyo_public_api_key", "label": "Klaviyo public api key" }
+  ]
+}
+{% endschema %}
+

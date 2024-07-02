@@ -1,0 +1,25 @@
+{%- if block.settings.gtm_id -%}
+<script>
+  const  myGtmId = "{{ block.settings.gtm_id }}";
+  console.log("myGtmId", myGtmId);
+
+  if (myGtmId != '') {
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer', '{{ block.settings.gtm_id }}');
+  }
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "RF - ADD GTM",
+  "target": "head",
+  "settings": [
+    { "type": "text", "id": "gtm_id", "label": "GTM" }
+  ]
+}
+{% endschema %}
+

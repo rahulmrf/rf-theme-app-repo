@@ -1,0 +1,17 @@
+{%- if block.settings.gtm_id -%}
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id={{ block.settings.gtm_id }}"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "RF - ADD GTM (body)",
+  "target": "section",
+  "settings": [
+    { "type": "text", "id": "gtm_id", "label": "GTM" }
+  ]
+}
+{% endschema %}
+
