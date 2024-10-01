@@ -1,0 +1,35 @@
+<script type="text/javascript">
+(function() {
+    // Check if jQuery is already loaded
+    if (typeof window.jQuery === 'undefined') {
+        console.log("jQuerydfdfdf.");
+        var script = document.createElement('script');
+        script.src = 'https://code.jquery.com/jquery-3.6.0.min.js'; // Load the required version of jQuery
+        script.type = 'text/javascript';
+        script.async = true;  // Ensure it loads asynchronously
+        script.onload = function() {
+            // After jQuery is loaded, run your app's jQuery-dependent code
+            console.log("jQuery loaded dynamically.");
+            jQueryReady();
+        };
+        document.getElementsByTagName('head')[0].appendChild(script);
+    } else {
+        // If jQuery is already loaded, run your app's jQuery-dependent code immediately
+        console.log("jQuery already loaded.");
+        jQueryReady();
+    }
+
+    function jQueryReady(){
+        document.dispatchEvent(new Event('jQueryReady'));
+    }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "RF - Jquery js",
+  "target": "head",
+  "settings": []
+}
+{% endschema %}
+
